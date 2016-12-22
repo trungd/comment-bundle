@@ -1,6 +1,6 @@
 <?php
 
-namespace dvtrung\CommentBundle\Entity;
+namespace Dvtrung\CommentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

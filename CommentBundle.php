@@ -1,6 +1,6 @@
 <?php
 
-namespace dvtrung\CommentBundle;
+namespace Dvtrung\CommentBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

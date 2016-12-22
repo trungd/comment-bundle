@@ -1,6 +1,6 @@
 <?php
 
-namespace dvtrung\CommentBundle\Service;
+namespace Dvtrung\CommentBundle\Service;
 
 use Doctrine\ORM\EntityManager;
 use AppBundle\Service\EntityServiceBase;
