@@ -1,0 +1,48 @@
+<div class="media" ng-show="comment">
+    <button type="button" class="close" ng-click="delete()" ng-show="!noRootComment && permission.canDelete">&times;</button>
+    <div class="media-left" ng-hide="noRootComment">
+        <a ng-href="{{ comment.user.url }}"><img class="img-avatar img-avatar-small pull-left" ng-src="{{comment.user.avatar}}"/></a>
+    </div>
+    <div class="media-body">
+        <div class="post-data" ng-hide="noRootComment">
+            <div ng-hide="noRootComment">
+                <span class="post-author">
+                    <strong><a ng-href="{{ comment.user.url }}">{{ comment.user.displayName }}</a></strong>
+                </span>
+
+                {{comment.content}}
+            </div>
+            <small class="post-date">
+                <span ng-hide="alwaysShowReplyBox || noReply">
+                    <a ng-click="showReply = !showReply">Trả lời · </a>
+                </span>
+                <span ng-show="comment.createdAt">
+                    <span am-time-ago="comment.createdAt.date"></span>
+                </span>
+            </small>
+        </div>
+        <div ng-repeat="comment in comments | reverse">
+            <comment ng-data="comment" no-reply="true"></comment>
+        </div>
+        <div ng-show="showReply || alwaysShowReplyBox">
+            <div class="media">
+                <div class="media-left">
+                    <img class="img-avatar img-avatar-small pull-left" ng-src="{{ $root.loggedUser.avatar }}"/>
+                </div>
+                <div class="media-body">
+                    <textarea ng-model="commentContent"></textarea>
+                    <div class="pull-left text-danger" ng-show="errorMessage">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <span ng-bind="errorMessage"></span>
+                    </div>
+                    <div class="text-right">
+                        <a ng-click="send()">
+                            <i class="fa fa-spinner fa-spin fa-fw" ng-show="sending"></i>
+                            <i class="fa fa-paper-plane fa-fw" ng-show="!sending"></i>
+                            Gửi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

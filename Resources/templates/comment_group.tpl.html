@@ -1,0 +1,31 @@
+<div ng-show="comments.length == 0 && loaded" class="text-center" style="padding: 15px;" ng-bind="txtNoComment"></div>
+<ul class="media-list">
+    <comment ng-data="comment" thread-code="threadCode" ng-repeat="comment in comments"></comment>
+</ul>
+<p ng-show="loading" class="text-center" role="alert" style="margin-top: 15px; margin-bottom: 15px;">
+    <i class="fa fa-spinner fa-spin fa-fw"></i>
+</p>
+<div ng-show="!$root.isLoggedIn && showNewCommentBox" class="text-center">
+    <a ng-click="$root.checkLoggedIn()" class="btn btn-primary">Đăng nhập để bình luận</a>
+</div>
+<div class="animate-show" ng-show="showNewCommentBox && $root.isLoggedIn">
+    <div class="media">
+        <div class="media-left">
+            <img class="img-avatar img-avatar-small pull-left" ng-src="{{ $root.loggedUser.avatar }}"/>
+        </div>
+        <div class="media-body">
+            <textarea rows="3" ng-model="commentContent" style="margin-bottom: 5px;"></textarea>
+            <div class="pull-left text-danger" ng-show="errorMessage">
+                <i class="fa fa-exclamation-triangle"></i>
+                <span ng-bind="errorMessage"></span>
+            </div>
+            <div class="text-right">
+                <a ng-click="send()">
+                    <i class="fa fa-spinner fa-spin fa-fw" ng-show="sending"></i>
+                    <i class="fa fa-paper-plane fa-fw" ng-show="!sending"></i>
+                    Gửi
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

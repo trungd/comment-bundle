@@ -1,0 +1,4 @@
+services:
+    comment:
+        class: CommentBundle\Service\Comment
+        arguments: ["@doctrine.orm.entity_manager"]
