@@ -1,0 +1,41 @@
+{
+    "name": "dvtrung/comment-bundle",
+    "type": "symfony-bundle",
+    "description": "Comment Bundle for Symfony",
+    "keywords": ["Comment management"],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dang Viet Trung",
+            "email": "viettrungdang@gmail.com"
+        },
+    ],
+    "require": {
+        "php": "^5.5.9 || ^7.0",
+        "symfony/framework-bundle": "^2.7 || ^3.0",
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Dvtrung\\CommentBundle\\": ""
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dvtrung\\CommentBundle\\Tests\\": "Tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "support": {
+        "docs": ""
+    }
+}
